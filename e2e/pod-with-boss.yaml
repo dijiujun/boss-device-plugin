@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: boss-pod
+  labels:
+    name: boss-pod
+spec:
+  containers:
+  - name: boss-pod
+    image: nginx:1.14.2
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "500m"
+        blueoceansmart.com/bxipc_chiplet: 1
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+        blueoceansmart/bxipc_chiplet: 1
+    ports:
+      - containerPort: 80
