@@ -29,7 +29,7 @@ const (
 	DevicePluginPath string = "/var/lib/kubelet/device-plugins/"
 )
 
-// ColaServer 是一个 device plugin server
+// BossServer 是一个 device plugin server
 type BossServer struct {
 	srv         *grpc.Server
 	devices     map[string]*pluginapi.Device
@@ -40,7 +40,7 @@ type BossServer struct {
 }
 
 // NewBossServer 实例化 bossServer
-func NewColaServer() *BossServer {
+func NewBossServer() *BossServer {
 	ctx, cancel := context.WithCancel(context.Background())
 	return &BossServer{
 		devices:     make(map[string]*pluginapi.Device),

@@ -1,4 +1,4 @@
-module github.com/joyme123/cola-device-plugin
+module github.com/dijiujun/boss-device-plugin
 
 go 1.13
 
