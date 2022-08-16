@@ -4,8 +4,8 @@ import (
 	"os"
 	"path/filepath"
 	"time"
-
-        "../../pkg/server"
+	
+	"github.com/dijiujun/boss-device-plugin/pkg/server"	
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/fsnotify.v1"
 )
