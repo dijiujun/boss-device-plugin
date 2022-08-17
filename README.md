@@ -16,7 +16,7 @@ make deploy
 
 ## 测试
 
-在节点上 `/dev` 文件夹下创建文件代表我们的 `blueoceansmart.com/bxipc_chiplet` 资源。比如:
+在节点上 `/dev/boss` 文件夹下创建文件代表我们的 `blueoceansmart.com/bxipc_chiplet` 资源。比如:
 
 ```shell
 $ touch bxipc_chiplet0

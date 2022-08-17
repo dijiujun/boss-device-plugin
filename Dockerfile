@@ -1,6 +1,6 @@
 FROM alpine:latest
-MAINTAINER jiangpengfei <jiangpengfei12@gmail.com>
+MAINTAINER dijiujun <dijiujun@163.com>
 
-COPY ./build/cola /root/cola
+COPY ./build/boss /root/boss
 
-CMD ["/root/cola"]
+CMD ["/root/boss"]

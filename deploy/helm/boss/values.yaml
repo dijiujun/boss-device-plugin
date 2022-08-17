@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: joyme/cola-device-plugin
+  repository: dijj/boss-device-plugin
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
