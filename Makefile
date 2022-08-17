@@ -1,6 +1,6 @@
-IMAGE_VERSION = latest
-REGISTRY = docker.io/joyme
-IMAGE = ${REGISTRY}/cola-device-plugin:${IMAGE_VERSION}
+IMAGE_VERSION = v1
+REGISTRY = docker.io/dijj
+IMAGE = ${REGISTRY}/boss-device-plugin:${IMAGE_VERSION}
 
 .PHONY: build deploy
 

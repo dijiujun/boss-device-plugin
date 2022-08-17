@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "cola.name" -}}
+{{- define "boss.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "cola.fullname" -}}
+{{- define "boss.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -27,16 +27,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "cola.chart" -}}
+{{- define "boss.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
 Common labels
 */}}
-{{- define "cola.labels" -}}
-helm.sh/chart: {{ include "cola.chart" . }}
-{{ include "cola.selectorLabels" . }}
+{{- define "boss.labels" -}}
+helm.sh/chart: {{ include "boss.chart" . }}
+{{ include "boss.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -46,17 +46,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "cola.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "cola.name" . }}
+{{- define "boss.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "boss.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "cola.serviceAccountName" -}}
+{{- define "boss.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create -}}
-    {{ default (include "cola.fullname" .) .Values.serviceAccount.name }}
+    {{ default (include "boss.fullname" .) .Values.serviceAccount.name }}
 {{- else -}}
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}

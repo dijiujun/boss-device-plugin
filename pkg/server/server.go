@@ -21,7 +21,7 @@ import (
 
 const (
 	resourceName        string = "blueoceansmart.com/bxipc_chiplet"
-	defaultBossLocation string = "/dev/boss"
+	defaultBossLocation string = "/dev/boss/"
 	bossSocket          string = "boss.sock"
 	// KubeletSocket kubelet 监听 unix 的名称
 	KubeletSocket string = "kubelet.sock"

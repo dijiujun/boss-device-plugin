@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: {{ include "cola.fullname" . }}
+  name: {{ include "boss.fullname" . }}
   namespace: {{ .Values.namespace }}
   labels:
-    {{- include "cola.labels" . | nindent 4 }}
+    {{- include "boss.labels" . | nindent 4 }}
 spec:
   updateStrategy:
     type: RollingUpdate
   selector:
     matchLabels:
-      {{- include "cola.selectorLabels" . | nindent 6 }}
+      {{- include "boss.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       # This annotation is deprecated. Kept here for backward compatibility
@@ -18,13 +18,13 @@ spec:
       annotations:
         scheduler.alpha.kubernetes.io/critical-pod: ""
       labels:
-        {{- include "cola.selectorLabels" . | nindent 8 }}
+        {{- include "boss.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include "cola.serviceAccountName" . }}
+      serviceAccountName: {{ include "boss.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -39,7 +39,7 @@ spec:
             - name: device-plugin
               mountPath: /var/lib/kubelet/device-plugins
             - name: devices
-              mountPath: /etc/colas
+              mountPath: /dev/boss
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -66,4 +66,4 @@ spec:
       - name: devices
         hostPath:
           type: Directory
-          path: /etc/colas
+          path: /dev/boss
